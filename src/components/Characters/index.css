@@ -2,6 +2,12 @@
     color: rgb(158, 158, 158);
 }
 
+section {
+    background: rgb(36, 40, 47);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
 .container-characters {
     display: flex;
     flex-direction: row;
@@ -12,7 +18,7 @@
 }
 .container-characters .card {
     background: rgb(60, 62, 68);
-    width: 500px;
+    width: 550px;
     height: 200px;
     border-radius: 5px;
     display: flex;

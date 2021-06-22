@@ -2,15 +2,13 @@ import React from 'react';
 
 //Components
 import Menu from "../components/Menu/index"
-import Cards from "../components/Cards/index"
+import List from "../components/Characters/index"
 
 export default function Home() {
     return(
         <>
             <Menu/>
-            <section className="container">
-                <Cards/>
-            </section>
+            <List/>
         </>
     );
 }
