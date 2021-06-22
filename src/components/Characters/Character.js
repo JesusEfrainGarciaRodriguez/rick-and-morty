@@ -1,7 +1,9 @@
 export default function Character({name, image, status, species, origin, location}) {
     return(
         <div className="card">
-            <img className="card-img" src={image} alt={name}/>
+            <div className="card-img">
+                <img src={image} alt={name}/>
+            </div>
             <div className="card-body">
                 <h5 className="card-title">{name}</h5>
                 <p className="card-status">Status: {status} - {species}</p>
