@@ -5,18 +5,27 @@ import './index.css';
 import logo from '../../assets/img/logo.png';
 
 export default function Menu() {
+
+    function myFunction() {
+        var x = document.getElementById("navbar-nav");
+        if (x.className === "navbar-nav") {
+            x.className += " show";
+        } else {
+            x.className = "navbar-nav";
+        }
+    }
+
     return(
-        <div className="menu">
-            <div className="container">
-                <div className="logo">
+        <nav className="navbar">
+                <div className="navbar-logo">
                     <a href="#"><img src={logo} alt="logo"/></a>
                 </div>
-                <nav className="navbar">
+                <a className="icon" onClick={myFunction}>X</a>
+                <div id="navbar-nav" className="navbar-nav">
                     <a href="#">Characters</a>
                     <a href="#">Locations</a>
                     <a href="#">Episodes</a>
-                </nav>
-            </div>
-        </div>
+                </div>
+        </nav>
     );
 }
