@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.css';
 
 //assets
@@ -6,29 +6,21 @@ import logo from '../../assets/img/logo.png';
 
 //fontawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Menu() {
-
-    function navResponsive() {
-        var x = document.getElementById("navbar-nav");
-        if (x.className === "navbar-nav") {
-            x.className += " show";
-        } else {
-            x.className = "navbar-nav";
-        }
-    }
+    const [open,setOpen] = useState(false);
 
     return(
         <nav className="navbar">
                 <div className="navbar-logo">
                     <a href="#"><img src={logo} alt="logo"/></a>
                 </div>
-                <a className="icon" onClick={navResponsive}>
-                    <FontAwesomeIcon icon={faBars} />
+                <a id="icon" className="icon" onClick={() => setOpen(!open)}>
+                    <FontAwesomeIcon icon={open? faTimes: faBars}/>
                 </a>
-                <div id="navbar-nav" className="navbar-nav">
+                <div id="navbar-nav" className={`navbar-nav ${open?"show":""}`}>
                     <a href="#">Characters</a>
                     <a href="#">Locations</a>
                     <a href="#">Episodes</a>
