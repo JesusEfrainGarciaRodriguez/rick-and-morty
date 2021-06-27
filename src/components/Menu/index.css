@@ -31,6 +31,7 @@
 
 .navbar a.icon {
     display: none;
+    font-size: 2em;
 }
 
 .navbar .navbar-nav a:hover {
