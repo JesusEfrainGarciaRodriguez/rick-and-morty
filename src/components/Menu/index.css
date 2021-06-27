@@ -1,6 +1,6 @@
 .navbar{
     background-color: white;
-    padding: 3px 27px;
+    padding: 3px 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -29,7 +29,7 @@
     font-size: 1.25em;
 }
 
-.navbar a.icon {
+.navbar span.icon {
     display: none;
     font-size: 2em;
 }
@@ -40,7 +40,7 @@
 
 @media screen and (max-width: 600px) {
 
-    .navbar a.icon {display: block;}
+    .navbar span.icon {display: block;}
 
     .navbar .navbar-nav a {
         padding: 10px 0;
