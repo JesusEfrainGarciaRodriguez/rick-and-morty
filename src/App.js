@@ -1,16 +1,10 @@
 import './App.css';
 
-//Views
-import Home from "./views/Home"
-
-//Providers
-import CharacterProvider from './context/characters/Provider';
+import Routes from './routes';
 
 function App() {
   return (
-    <CharacterProvider>
-      <Home/>
-    </CharacterProvider>
+    <Routes/>
   );
 }
 
