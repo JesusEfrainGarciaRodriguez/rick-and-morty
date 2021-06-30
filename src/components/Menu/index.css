@@ -49,12 +49,20 @@
     }
 
     .navbar .navbar-nav {
-        display: none;
+        flex-direction: column;
+        visibility: hidden;
+        width: 100%;
+        max-height: 0;
+        opacity: 0;
+        transform: scaleY(0);
+        overflow: hidden;
+        transition: all ease .7s;
     }
 
     .navbar .navbar-nav.show {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+        visibility: visible;
+        opacity: 1;
+        max-height: 150px;
+        transform: scaleY(1);
     }
 }
