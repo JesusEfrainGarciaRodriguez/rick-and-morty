@@ -7,8 +7,8 @@ import Banner from '../components/Banner';
 //Providers
 import CharacterProvider from '../context/characters/Provider';
 
-export default function Home() {
-    return(
+const Index = () => {
+    return (
         <>
             <Banner/>
             <CharacterProvider>
@@ -17,3 +17,5 @@ export default function Home() {
         </>
     );
 }
+ 
+export default Index;
