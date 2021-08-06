@@ -1,4 +1,4 @@
-import './App.css';
+import GlobalStyle from "./globalStyles";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 // Pages
@@ -13,6 +13,7 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <Router>
+      <GlobalStyle />
 
       <Navbar />
 
