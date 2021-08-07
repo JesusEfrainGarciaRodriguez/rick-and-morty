@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Container } from "../globalStyles";
 
-const CardsContainer = styled(Container)`
+const CardsContainer = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -11,56 +10,31 @@ const CardsContainer = styled(Container)`
 
 const Card = styled.div`
     background: rgb(60, 62, 68);
-    width: 100%;
-    max-width: 600px;
-    height: auto;
+    /* min-width: 100%; */
+    width: 300px;
+    overflow: hidden;
     border-radius: 5px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0.75rem;
-
-    @media screen and (max-width:500px) {
-        flex-direction: column;
-        width: 380px;
-    }
 `;
 
-const CardImageContainer = styled.div`
-    flex: 2 1 0%;
-    overflow: hidden;
-
-    img {
-        border-radius: 5px 0 0 5px;
-        vertical-align: top;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-
-        @media screen and (max-width:500px) {
-            height: 300px;
-            width: 100%;
-            border-radius: 5px 5px 0 0;
-        }
-    }
-
-    @media screen and (max-width:500px) {
-        width: 100%;
-    }
+const CardImage = styled.img`
+    width: 200px;
+    height: 300px;
+    display: block;
+    object-fit: cover;
 `;
 
 const CardBody = styled.div`
-    flex: 3 1 0%;
-    padding: 20px;
-    color: white;
-
-    @media screen and (max-width:500px) {
-        width: 100%;
-    }
+    width: 100%;
+    padding: 10px 5px;
 `;
 
 const CardTitle = styled.h5`
-    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* margin-top: 10px; */
+    margin: 10px 0;
+    color: white;
+    text-align: center;
 `;
 
 const CardText = styled.p`
@@ -75,4 +49,4 @@ const CardText = styled.p`
     }
 `;
 
-export { CardsContainer, Card, CardImageContainer, CardBody, CardTitle, CardText };
+export { CardsContainer, Card, CardImage, CardBody, CardTitle, CardText };
