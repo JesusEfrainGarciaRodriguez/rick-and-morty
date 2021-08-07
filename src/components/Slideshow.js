@@ -119,14 +119,8 @@ const Slide = styled.div`
 	/* max-height: 500px; */
 	position: relative;
 	padding: 0 5px;
-
 	display: flex;
 	justify-content: center;
-
-	img {
-		width: 100%;
-		vertical-align: top;
-	}
 `;
 
 const TextoSlide = styled.div`
@@ -167,7 +161,7 @@ const Boton = styled.button`
 	font-size: 25px;
 
 	path {
-		fill: rgba(255,255,255,.5);
+		fill: rgba(255,255,255,.2);
 	}
 
 	&:hover {

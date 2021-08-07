@@ -14,6 +14,7 @@ export const Container = styled.div`
     width: 90%;
     max-width: 1300px;
     margin: auto;
+    overflow: hidden;
 `;
 
 export const Section = styled.section`

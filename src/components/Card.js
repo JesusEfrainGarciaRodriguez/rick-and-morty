@@ -17,8 +17,7 @@ const Card = styled.div`
 `;
 
 const CardImage = styled.img`
-    width: 200px;
-    height: 300px;
+    width: 100%;
     display: block;
     object-fit: cover;
 `;
