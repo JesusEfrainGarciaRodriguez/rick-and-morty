@@ -121,6 +121,18 @@ const Slide = styled.div`
 	padding: 0 5px;
 	display: flex;
 	justify-content: center;
+
+	@media screen and (max-width: 900px) {
+		min-width: 25%;
+	}
+
+	@media screen and (max-width: 750px) {
+		min-width: 33%;
+	}
+
+	@media screen and (max-width: 600px) {
+		min-width: 50%;
+	}
 `;
 
 const TextoSlide = styled.div`
@@ -177,5 +189,14 @@ const Boton = styled.button`
 
 	${props => props.derecho ? 'right: 0' : 'left: 0'}
 `;
+
+const TituloSlideshow = styled.p`
+	font-size: 20px;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	color: white;
+	letter-spacing: 2px;
+`;
  
-export {Slideshow, Slide, TextoSlide};
+export {Slideshow, TituloSlideshow, Slide, TextoSlide};

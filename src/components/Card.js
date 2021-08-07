@@ -34,11 +34,13 @@ const CardTitle = styled.h5`
     margin: 10px 0;
     color: white;
     text-align: center;
+    font-size: 16px;
 `;
 
 const CardText = styled.p`
     margin-bottom: 10px;
     line-height: 25px;
+    color: white;
 
     span {
         color: rgb(158, 158, 158);
