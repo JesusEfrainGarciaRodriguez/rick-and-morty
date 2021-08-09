@@ -9,6 +9,7 @@ import Episodes from "./pages/Episodes";
 
 // Components
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
           <Route path="/episodes" component={Episodes} />
           <Route path="/" component={Index} />
       </Switch>
+
+      <Footer/>
     </Router>
   );
 }
