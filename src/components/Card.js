@@ -43,7 +43,6 @@ const CardImageContainer = styled.div`
 const CardBody = styled.div`
     flex: 3 1 0%;
     width: 100%;
-    height: 100%;
     padding: 0.75rem;
     display: flex;
     flex-direction: column;
@@ -61,11 +60,13 @@ const CardSection = styled.div`
 const CardTitle = styled.h5`
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-top: 10px;
+    height: 50px;
     color: white;
     text-align: center;
     font-size: 16px;
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const CardText  = styled.p`
