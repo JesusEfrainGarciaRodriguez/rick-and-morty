@@ -2,7 +2,7 @@ import React from 'react';
 
 // Components
 import Banner from '../components/Banner';
-import { Card, CardImage, CardBody, CardTitle, CardText } from "../components/Card";
+import { Card, CardImageContainer, CardBody, CardTitle, CardText, CardSection, CardTextGray } from "../components/Card";
 import { Container, Section } from '../globalStyles';
 import { Slideshow, TituloSlideshow, Slide } from '../components/Slideshow';
 
@@ -31,7 +31,9 @@ const Index = () => {
                             return (
                                 <Slide key={index}>
                                     <Card>
-                                        <CardImage src={character.image} alt={character.name} />
+                                        <CardImageContainer>
+                                            <img src={character.image} alt={character.name} />
+                                        </CardImageContainer>
                                         <CardBody>
                                             <CardTitle>{character.name}</CardTitle>
                                         </CardBody>
@@ -51,8 +53,15 @@ const Index = () => {
                                     <Card>
                                         <CardBody>
                                             <CardTitle>{location.name}</CardTitle>
-                                            <CardText><span>Dimension: </span>{location.dimension}</CardText>
-                                            <CardText><span>Type: </span>{location.type}</CardText>
+                                            <CardSection>
+                                                <CardTextGray>Dimension:</CardTextGray>
+                                                <CardText>{location.dimension}</CardText>
+                                            </CardSection>
+                                            
+                                            <CardSection>
+                                                <CardTextGray>Type:</CardTextGray>
+                                                <CardText>{location.type}</CardText>
+                                            </CardSection>
                                         </CardBody>
                                     </Card>
                                 </Slide>
@@ -70,8 +79,14 @@ const Index = () => {
                                     <Card>
                                         <CardBody>
                                             <CardTitle>{episode.name}</CardTitle>
-                                            <CardText><span>Episode: </span>{episode.episode}</CardText>
-                                            <CardText><span>Air date: </span>{episode.air_date}</CardText>
+                                            <CardSection>
+                                                <CardTextGray>Episode:</CardTextGray>
+                                                <CardText>{episode.episode}</CardText>
+                                            </CardSection>
+                                            <CardSection>
+                                                <CardTextGray>Air date:</CardTextGray>
+                                                <CardText>{episode.air_date}</CardText>
+                                            </CardSection>
                                         </CardBody>
                                     </Card>
                                 </Slide>

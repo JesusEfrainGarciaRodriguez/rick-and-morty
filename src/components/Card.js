@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const CardsContainer = styled.div`
     display: flex;
@@ -10,44 +10,86 @@ const CardsContainer = styled.div`
 
 const Card = styled.div`
     background: rgb(60, 62, 68);
-    /* min-width: 100%; */
     width: 300px;
     overflow: hidden;
     border-radius: 5px;
+
+    ${props => props.row && css`
+        display: flex;
+        flex-direction: row;
+        width: 600px;
+        height: 220px;
+        margin: 10px 15px;
+
+        @media screen and (max-width:500px) {
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+    `}
 `;
 
-const CardImage = styled.img`
+const CardImageContainer = styled.div`
+    flex: 2 1 0%;
     width: 100%;
-    display: block;
-    object-fit: cover;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 `;
 
 const CardBody = styled.div`
+    flex: 3 1 0%;
     width: 100%;
-    padding: 10px 5px;
+    height: 100%;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+`;
+
+const CardSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 15px;
 `;
 
 const CardTitle = styled.h5`
     text-transform: uppercase;
     letter-spacing: 2px;
-    /* margin-top: 10px; */
-    margin: 10px 0;
+    margin-top: 10px;
     color: white;
     text-align: center;
     font-size: 16px;
+    margin-bottom: 10px;
 `;
 
-const CardText = styled.p`
-    margin-bottom: 10px;
+const CardText  = styled.p`
     line-height: 25px;
     color: white;
-
-    span {
-        color: rgb(158, 158, 158);
-        display: block;
-        font-size: 0.9375rem;
-        font-weight: bold;
-    }
+    display: flex;
+    align-items: center;
 `;
 
-export { CardsContainer, Card, CardImage, CardBody, CardTitle, CardText };
+const CardTextGray = styled.p`
+    color: rgb(158, 158, 158);
+    font-size: 0.9375rem;
+    font-weight: bold;
+`;
+
+const CardStatusIcon = styled.span`
+    height: 0.5rem;
+    width: 0.5rem;
+    margin-right: 0.375rem;
+    border-radius: 50%;
+
+    ${props => props.status === "Alive" && "background: rgb(85, 204, 68)"}
+    ${props => props.status === "Dead" && "background: rgb(214, 61, 46)"}
+    ${props => props.status === "unknown" && "background: rgb(158, 158, 158)"}
+`;
+
+export { CardsContainer, Card, CardImageContainer, CardBody, CardSection, CardTitle, CardText, CardTextGray, CardStatusIcon };
