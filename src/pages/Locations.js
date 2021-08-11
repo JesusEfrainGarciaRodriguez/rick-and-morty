@@ -2,7 +2,7 @@ import React from 'react';
 
 //Components
 import { Container, Section } from '../globalStyles';
-import { CardsContainer, Card, CardSection, CardImageContainer, CardBody, CardTitle, CardText, CardTextGray, CardStatusIcon } from '../components/Card'
+import { CardsContainer, Card, CardSection, CardBody, CardTitle, CardText, CardTextGray } from '../components/Card'
 import Pagination from '../components/Pagination';
 
 // Hooks

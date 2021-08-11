@@ -8,6 +8,35 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 // Hooks
 import useGetCharacters from "../hooks/useGetCharacters";
+import useGetEpisodes from "../hooks/useGetEpisodes";
+import useGetLocations from "../hooks/useGetLocations";
+
+const Footer = () => {
+    const {totalCount:totalCountCharacters} = useGetCharacters();
+    const {totalCount:totalCountEpisodes} = useGetEpisodes();
+    const {totalCount:totalCountLocations} = useGetLocations();
+
+    return (
+        <ContainerFooter>
+            <Container>
+                <List>
+                    <li>Characters: {totalCountCharacters}</li>
+                    <li>Locations: {totalCountLocations}</li>
+                    <li>Episodes: {totalCountEpisodes}</li>
+                </List>
+                <ContainerIcons>
+                    <Icon href="https://github.com/JesusEfrainGarciaRodriguez">
+                        <FontAwesomeIcon icon={faGithub} />
+                    </Icon>
+                    <Icon href="mailto:efraingarcia_86@hotmail.com">
+                        <FontAwesomeIcon icon={faEnvelope} />
+                    </Icon>
+                </ContainerIcons>
+                <Text>by <Underline>Efrain Garcia</Underline> 2021</Text>
+            </Container>
+        </ContainerFooter>
+    );
+}
 
 const ContainerFooter = styled.footer`
     width: 100%;
@@ -61,28 +90,4 @@ const Underline = styled.span`
     font-weight: bold;
 `;
 
-const Footer = () => {
-    const {totalCountCharacters} = useGetCharacters();
-    return (
-        <ContainerFooter>
-            <Container>
-                <List>
-                    <li>Characters: {totalCountCharacters}</li>
-                    <li>Locations: </li>
-                    <li>Episodes: </li>
-                </List>
-                <ContainerIcons>
-                    <Icon href="https://github.com/JesusEfrainGarciaRodriguez">
-                        <FontAwesomeIcon icon={faGithub} />
-                    </Icon>
-                    <Icon href="mailto:efraingarcia_86@hotmail.com">
-                        <FontAwesomeIcon icon={faEnvelope} />
-                    </Icon>
-                </ContainerIcons>
-                <Text>by <Underline>Efrain Garcia</Underline> 2021</Text>
-            </Container>
-        </ContainerFooter>
-    );
-}
- 
 export default Footer;
