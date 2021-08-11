@@ -13,13 +13,13 @@ const Card = styled.div`
     width: 300px;
     overflow: hidden;
     border-radius: 5px;
+    margin: 10px 5px;
 
     ${props => props.row && css`
         display: flex;
         flex-direction: row;
         width: 600px;
         height: 220px;
-        margin: 10px 10px;
 
         @media screen and (max-width:500px) {
             flex-direction: column;

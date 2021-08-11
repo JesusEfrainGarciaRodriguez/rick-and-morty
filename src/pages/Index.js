@@ -14,8 +14,8 @@ import useGetEpisodes from '../hooks/useGetEpisodes';
 
 const Index = () => {
     const {characters} = useGetCharacters();
-    const locations = useGetLocations();
-    const episodes = useGetEpisodes();
+    const {locations} = useGetLocations();
+    const {episodes} = useGetEpisodes();
     
     return (
         <>
@@ -71,7 +71,7 @@ const Index = () => {
 
                     <br/>
 
-                    <TituloSlideshow>Episodes   </TituloSlideshow>
+                    <TituloSlideshow>Episodes</TituloSlideshow>
                     <Slideshow autoplay velocidad="900">
                         { episodes.map((episode, index) => {
                             return (

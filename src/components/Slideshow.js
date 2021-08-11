@@ -117,7 +117,6 @@ const Slide = styled.div`
 	z-index: 10;
 	/* max-height: 500px; */
 	position: relative;
-	padding: 0 5px;
 	display: flex;
 	justify-content: center;
 
@@ -190,7 +189,7 @@ const Boton = styled.button`
 `;
 
 const TituloSlideshow = styled.p`
-	font-size: 20px;
+	font-size: 1.25rem;
 	font-weight: 700;
 	text-transform: uppercase;
 	margin-bottom: 10px;
