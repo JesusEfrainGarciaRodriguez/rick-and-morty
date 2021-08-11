@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Components
-import { Container, Section, Titulo } from '../globalStyles';
+import { Container, Section, Title } from '../globalStyles';
 import { CardsContainer, Card, CardSection, CardImageContainer, CardBody, CardTitle, CardText, CardTextGray, CardStatusIcon } from '../components/Card'
 import Pagination from '../components/Pagination';
 
@@ -14,7 +14,7 @@ export default function Characters() {
     return(
         <Section black>
             <Container>
-                <Titulo>Characters</Titulo>
+                <Title>Characters</Title>
                 <CardsContainer>
                     { characters.map((character) => {
                         return (

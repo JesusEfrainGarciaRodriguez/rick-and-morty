@@ -23,7 +23,7 @@ export const Section = styled.section`
     padding: 70px 0;
 `;
 
-export const Titulo = styled.h2`
+export const Title = styled.h2`
     font-size: 1.5rem;
     font-weight: 700;
     text-transform: uppercase;
