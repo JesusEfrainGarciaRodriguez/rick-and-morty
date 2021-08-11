@@ -6,9 +6,10 @@ import { CardsContainer, Card, CardSection, CardImageContainer, CardBody, CardTi
 
 // Hooks
 import useGetCharacters from '../hooks/useGetCharacters';
+import Pagination from '../components/Pagination';
 
 export default function Characters() {
-    const characters = useGetCharacters();
+    const {characters, changePage, pages} = useGetCharacters();
 
     return(
         <Section black>
@@ -16,7 +17,7 @@ export default function Characters() {
                 <CardsContainer>
                     { characters.map((character) => {
                         return (
-                            <Card row>
+                            <Card row key={character.id}>
                                 <CardImageContainer>
                                     <img src={character.image} alt={character.name}/>
                                 </CardImageContainer>
@@ -41,6 +42,10 @@ export default function Characters() {
                         );
                     })}
                 </CardsContainer>
+                <Pagination 
+                    changePage={changePage}
+                    pages={pages}
+                />
             </Container>
         </Section>
     );

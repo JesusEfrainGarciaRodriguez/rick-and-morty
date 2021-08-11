@@ -20,8 +20,7 @@ export const Container = styled.div`
 export const Section = styled.section`
     width: 100%;
     background: ${(props) => props.black ? "rgb(36,40,47)" : "white"};
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 70px 0;
 `;
 
 export default GlobalStyle;

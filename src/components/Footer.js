@@ -6,6 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
+// Hooks
+import useGetCharacters from "../hooks/useGetCharacters";
+
 const ContainerFooter = styled.footer`
     width: 100%;
     background: rgb(32, 35, 41);
@@ -59,11 +62,12 @@ const Underline = styled.span`
 `;
 
 const Footer = () => {
+    const {totalCountCharacters} = useGetCharacters();
     return (
         <ContainerFooter>
             <Container>
                 <List>
-                    <li>Characters: </li>
+                    <li>Characters: {totalCountCharacters}</li>
                     <li>Locations: </li>
                     <li>Episodes: </li>
                 </List>

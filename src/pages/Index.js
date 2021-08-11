@@ -13,7 +13,7 @@ import useGetEpisodes from '../hooks/useGetEpisodes';
 
 
 const Index = () => {
-    const characters = useGetCharacters();
+    const {characters} = useGetCharacters();
     const locations = useGetLocations();
     const episodes = useGetEpisodes();
     
