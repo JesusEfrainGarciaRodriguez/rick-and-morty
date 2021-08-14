@@ -6,6 +6,12 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 const Pagination = ({changePage, pages}) => {
     const [currentPage, setCurrentPage] = useState(1);
 
+    // Obtener un arreglo con todos los numeros de pagina
+    const arrayNumberOfPages = [];
+    for(let i=1; i <= pages ; i++) {
+        arrayNumberOfPages.push(i);
+    }
+
     function goToNextPage() {
         const page = currentPage + 1;
         if(page < pages + 1) {
@@ -34,18 +40,16 @@ const Pagination = ({changePage, pages}) => {
     }
 
     const getPaginationGroup = () => {
-        let array = [];
-        // Obtener un arreglo con todos los numeros de pagina
-        for(let i=1; i < pages + 1 ; i++) {
-            array.push(i);
-        }
-        // Si la pagina actual es menor a 5
         if(currentPage < 4) {
             // Devolver arreglo iniciando del 1 hasta el 5
-            return array.slice(0,currentPage+4)
+            return arrayNumberOfPages.slice(0,currentPage+4)
+        }
+        if(currentPage > pages - 4 && pages-7 >= 1) {
+            // Devolver arreglo con los 7 numeros ultimos del arreglo hasta el final
+            return arrayNumberOfPages.slice(pages-7)
         }
         // Devolver arreglo desde los 3 numeros anteriores y posteriores
-        return array.slice(currentPage-4,currentPage+3);
+        return arrayNumberOfPages.slice(currentPage-4,currentPage+3);
     }
 
     return (
