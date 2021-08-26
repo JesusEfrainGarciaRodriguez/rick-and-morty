@@ -20,6 +20,7 @@ const Card = styled.div`
         flex-direction: row;
         width: 600px;
         height: 220px;
+        margin: 10px;
 
         @media screen and (max-width:500px) {
             flex-direction: column;

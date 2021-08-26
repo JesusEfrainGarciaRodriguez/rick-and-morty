@@ -1,12 +1,14 @@
 import React from 'react';
 
 //Components
-import { Container, Section, Title } from '../globalStyles';
+import { Container, Section } from '../globalStyles';
 import { CardsContainer, Card, CardSection, CardImageContainer, CardBody, CardTitle, CardText, CardTextGray, CardStatusIcon } from '../components/Card'
 import Pagination from '../components/Pagination';
+import { Title, TitleContainer } from '../components/Title';
 
 // Hooks
 import useGetCharacters from '../hooks/useGetCharacters';
+import SearchBar from '../components/SearchBar';
 
 export default function Characters() {
     const {characters, changePage, pages} = useGetCharacters();
@@ -14,7 +16,10 @@ export default function Characters() {
     return(
         <Section black>
             <Container>
-                <Title>Characters</Title>
+                <TitleContainer>
+                    <Title>Characters</Title>
+                    <SearchBar/>
+                </TitleContainer>
                 <CardsContainer>
                     { characters.map((character) => {
                         return (

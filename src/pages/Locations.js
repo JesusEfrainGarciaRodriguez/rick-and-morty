@@ -1,9 +1,11 @@
 import React from 'react';
 
 //Components
-import { Container, Section, Title } from '../globalStyles';
+import { Container, Section } from '../globalStyles';
 import { CardsContainer, Card, CardSection, CardBody, CardTitle, CardText, CardTextGray } from '../components/Card'
 import Pagination from '../components/Pagination';
+import { Title, TitleContainer } from '../components/Title';
+import SearchBar from '../components/SearchBar';
 
 // Hooks
 import useGetLocation from '../hooks/useGetLocations';
@@ -14,7 +16,10 @@ export default function Locations() {
     return(
         <Section black>
             <Container>
-                <Title>Locations</Title>
+                <TitleContainer>
+                    <Title>Locations</Title>
+                    <SearchBar />
+                </TitleContainer>
                 <CardsContainer>
                     { locations.map((location) => {
                         return (
