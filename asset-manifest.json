@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/JesusEfrainGarciaRodriguez/rick-and-morty/static/js/main.7cf8c275.chunk.js",
-    "main.js.map": "/JesusEfrainGarciaRodriguez/rick-and-morty/static/js/main.7cf8c275.chunk.js.map",
-    "runtime-main.js": "/JesusEfrainGarciaRodriguez/rick-and-morty/static/js/runtime-main.a5b8d528.js",
-    "runtime-main.js.map": "/JesusEfrainGarciaRodriguez/rick-and-morty/static/js/runtime-main.a5b8d528.js.map",
-    "static/js/2.15ffe706.chunk.js": "/JesusEfrainGarciaRodriguez/rick-and-morty/static/js/2.15ffe706.chunk.js",
-    "static/js/2.15ffe706.chunk.js.map": "/JesusEfrainGarciaRodriguez/rick-and-morty/static/js/2.15ffe706.chunk.js.map",
-    "index.html": "/JesusEfrainGarciaRodriguez/rick-and-morty/index.html",
-    "static/js/2.15ffe706.chunk.js.LICENSE.txt": "/JesusEfrainGarciaRodriguez/rick-and-morty/static/js/2.15ffe706.chunk.js.LICENSE.txt",
-    "static/media/banner.de13d484.png": "/JesusEfrainGarciaRodriguez/rick-and-morty/static/media/banner.de13d484.png",
-    "static/media/logo.accf5a43.png": "/JesusEfrainGarciaRodriguez/rick-and-morty/static/media/logo.accf5a43.png"
+    "main.js": "/rick-and-morty/static/js/main.7cf8c275.chunk.js",
+    "main.js.map": "/rick-and-morty/static/js/main.7cf8c275.chunk.js.map",
+    "runtime-main.js": "/rick-and-morty/static/js/runtime-main.2cb16277.js",
+    "runtime-main.js.map": "/rick-and-morty/static/js/runtime-main.2cb16277.js.map",
+    "static/js/2.df3ae5a8.chunk.js": "/rick-and-morty/static/js/2.df3ae5a8.chunk.js",
+    "static/js/2.df3ae5a8.chunk.js.map": "/rick-and-morty/static/js/2.df3ae5a8.chunk.js.map",
+    "index.html": "/rick-and-morty/index.html",
+    "static/js/2.df3ae5a8.chunk.js.LICENSE.txt": "/rick-and-morty/static/js/2.df3ae5a8.chunk.js.LICENSE.txt",
+    "static/media/banner.de13d484.png": "/rick-and-morty/static/media/banner.de13d484.png",
+    "static/media/logo.accf5a43.png": "/rick-and-morty/static/media/logo.accf5a43.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.a5b8d528.js",
-    "static/js/2.15ffe706.chunk.js",
+    "static/js/runtime-main.2cb16277.js",
+    "static/js/2.df3ae5a8.chunk.js",
     "static/js/main.7cf8c275.chunk.js"
   ]
 }
