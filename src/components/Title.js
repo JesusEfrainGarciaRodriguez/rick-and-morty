@@ -19,7 +19,7 @@ const TitleContainer = styled.div`
 
     @media (max-width: 768px) {
         flex-direction: column;
-        margin: 20px;
+        margin-bottom: 20px;
     }
 `;
 

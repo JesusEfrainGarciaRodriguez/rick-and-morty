@@ -21,6 +21,11 @@ const Search = styled.div`
     height: 38px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 const Input = styled.input`
