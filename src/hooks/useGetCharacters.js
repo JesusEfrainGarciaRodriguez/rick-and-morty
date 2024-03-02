@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import useFetch from './useFetch';
 import useFilters from './useFilters';
+import { URL_CHARACTERS, FILTERS_NAME, FILTERS_PAGE } from '../constants';
 
 const useGetCharacters = () => {
     const { currentPage, name, changePage, searchByName } = useFilters();
-    const { data, isLoading } = useFetch(`https://rickandmortyapi.com/api/character?page=${currentPage}&name=${name}`);
+    const { data, isLoading } = useFetch(`${URL_CHARACTERS}?${FILTERS_PAGE}=${currentPage}&${FILTERS_NAME}=${name}`);
     const [characters, setCharacters] = useState({
         data: [],
         pages: 0,
