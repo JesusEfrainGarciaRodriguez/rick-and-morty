@@ -1,29 +1,38 @@
 import { useState, useEffect } from 'react';
+import useFetch from './useFetch';
 
 const useGetEpisodes = () => {
-    const [episodes, setEpisodes] = useState([]);
-    const [totalCount, setTotalCount] = useState(0);
-    const [pages, setPages] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [name, setName] = useState("");
+    const { data, isLoading } = useFetch(`https://rickandmortyapi.com/api/episode?page=${currentPage}&name=${name}`);
+    const [episodes, setEpisodes] = useState({
+        data: [],
+        pages: 0,
+        totalCount: 0
+    })
 
-    const fetchApi = async () => {
-        const res = await fetch('https://rickandmortyapi.com/api/episode');
-        const json = await res.json();
-        setEpisodes(json.results);
-        setTotalCount(json.info.count);
-        setPages(json.info.pages);
+    const changePage = (page) => {
+        setCurrentPage(page);
+    }
+
+    const updateData = () => {
+        setEpisodes({
+            data: data?.results,
+            pages: data?.info?.pages,
+            totalCount: data?.info?.count
+        });
+    }
+
+    const searchByName = (name) => {
+        setName(name);
+        changePage(1);
     }
 
     useEffect(() => {
-        fetchApi();
-    }, []);
+        updateData();
+    }, [data])
 
-    const changePage = async (page) => {
-        const res = await fetch(`https://rickandmortyapi.com/api/episode?page=${page}`);
-        const json = await res.json();
-        setEpisodes(json.results);
-    }
-
-    return {episodes, totalCount, pages, changePage};
+    return {episodes, changePage, isLoading, searchByName, currentPage};
 }
  
 export default useGetEpisodes;

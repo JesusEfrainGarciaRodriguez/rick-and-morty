@@ -1,29 +1,38 @@
 import { useState, useEffect } from 'react';
+import useFetch from './useFetch';
 
 const useGetLocations = () => {
-    const [locations, setLocations] = useState([]);
-    const [totalCount, setTotalCount] = useState(0);
-    const [pages, setPages] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [name, setName] = useState("");
+    const { data, isLoading } = useFetch(`https://rickandmortyapi.com/api/location?page=${currentPage}&name=${name}`);
+    const [locations, setLocations] = useState({
+        data: [],
+        pages: 0,
+        totalCount: 0
+    })
 
-    const fetchApi = async () => {
-        const res = await fetch('https://rickandmortyapi.com/api/location');
-        const json = await res.json();
-        setLocations(json.results);
-        setTotalCount(json.info.count);
-        setPages(json.info.pages);
+    const changePage = (page) => {
+        setCurrentPage(page);
+    }
+
+    const updateData = () => {
+        setLocations({
+            data: data?.results,
+            pages: data?.info?.pages,
+            totalCount: data?.info?.count
+        });
+    }
+
+    const searchByName = (name) => {
+        setName(name);
+        changePage(1);
     }
 
     useEffect(() => {
-        fetchApi();
-    }, []);
+        updateData();
+    }, [data])
 
-    const changePage = async (page) => {
-        const res = await fetch(`https://rickandmortyapi.com/api/location?page=${page}`);
-        const json = await res.json();
-        setLocations(json.results);
-    }
-
-    return {locations, totalCount, pages, changePage};
+    return {locations, changePage, isLoading, searchByName, currentPage};
 }
  
 export default useGetLocations;

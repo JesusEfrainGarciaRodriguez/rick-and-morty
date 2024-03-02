@@ -47,7 +47,7 @@ const Index = () => {
                     
                     <TituloSlideshow>Locations</TituloSlideshow>
                     <Slideshow autoplay velocidad="700">
-                        { locations.map((location, index) => {
+                        { locations?.data?.map((location, index) => {
                             return (
                                 <Slide key={index}>
                                     <Card>
@@ -73,7 +73,7 @@ const Index = () => {
 
                     <TituloSlideshow>Episodes</TituloSlideshow>
                     <Slideshow autoplay velocidad="900">
-                        { episodes.map((episode, index) => {
+                        { episodes?.data?.map((episode, index) => {
                             return (
                                 <Slide key={index}>
                                     <Card>

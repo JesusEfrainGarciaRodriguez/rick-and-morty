@@ -11,17 +11,19 @@ import SearchBar from '../components/SearchBar';
 import useGetEpisodes from '../hooks/useGetEpisodes';
 
 export default function Episodes() {
-    const {episodes, pages, changePage} = useGetEpisodes();
+    const {episodes, changePage, isLoading, searchByName, currentPage} = useGetEpisodes();
+    const {data, pages} = episodes;
 
     return(
         <Section black>
             <Container>
                 <TitleContainer>
                     <Title>Episodes</Title>
-                    <SearchBar />
+                    <SearchBar searchByName={searchByName} />
                 </TitleContainer>
                 <CardsContainer>
-                    { episodes.map((episode) => {
+                    { isLoading && <h1>Cargando...</h1> }
+                    { !isLoading && data?.map((episode) => {
                         return(
                             <Card key={episode.id}>
                                 <CardBody>
@@ -42,6 +44,7 @@ export default function Episodes() {
                 <Pagination 
                     changePage={changePage}
                     pages={pages}
+                    currentPage={currentPage}
                 />
             </Container>
         </Section>

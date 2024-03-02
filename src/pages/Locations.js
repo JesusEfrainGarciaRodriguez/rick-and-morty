@@ -11,17 +11,19 @@ import SearchBar from '../components/SearchBar';
 import useGetLocation from '../hooks/useGetLocations';
 
 export default function Locations() {
-    const {locations, changePage, pages} = useGetLocation();
+    const {locations, changePage, isLoading, searchByName, currentPage} = useGetLocation();
+    const {data, pages} = locations;
 
     return(
         <Section black>
             <Container>
                 <TitleContainer>
                     <Title>Locations</Title>
-                    <SearchBar />
+                    <SearchBar searchByName={searchByName} />
                 </TitleContainer>
                 <CardsContainer>
-                    { locations.map((location) => {
+                    { isLoading && <h1>Cargando...</h1> }
+                    { !isLoading && data?.map((location) => {
                         return (
                             <Card key={location.id}>
                                 <CardBody>
@@ -43,6 +45,7 @@ export default function Locations() {
                 <Pagination 
                     changePage={changePage}
                     pages={pages}
+                    currentPage={currentPage}
                 />
             </Container>
         </Section>
