@@ -27,7 +27,7 @@ const Index = () => {
                 <Container>
                     <TituloSlideshow>Characters</TituloSlideshow>
                     <Slideshow autoplay>
-                        { characters.map((character, index) => {
+                        { characters?.data?.map((character, index) => {
                             return (
                                 <Slide key={index}>
                                     <Card>

@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-const Pagination = ({changePage, pages}) => {
-    const [currentPage, setCurrentPage] = useState(1);
+const Pagination = ({changePage, pages, currentPage}) => {
 
     // Obtener un arreglo con todos los numeros de pagina
     const arrayNumberOfPages = [];
@@ -16,7 +15,6 @@ const Pagination = ({changePage, pages}) => {
         const page = currentPage + 1;
         if(page < pages + 1) {
             changePage(page);
-            setCurrentPage(page);
             window.scrollTo(0, 0);
         }
     }
@@ -25,7 +23,6 @@ const Pagination = ({changePage, pages}) => {
         const page = currentPage - 1;
         if(page > 0) {
             changePage(page);
-            setCurrentPage(page);
             window.scrollTo(0, 0);
         }
     }
@@ -33,7 +30,6 @@ const Pagination = ({changePage, pages}) => {
     function onChangePage(event) {
         const pageNumber = Number(event.target.textContent);
         if(pageNumber >= 1 && pageNumber <= pages ) {
-            setCurrentPage(pageNumber);
             changePage(pageNumber);
             window.scrollTo(0, 0);
         }

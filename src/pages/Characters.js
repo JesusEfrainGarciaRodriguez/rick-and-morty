@@ -11,17 +11,19 @@ import useGetCharacters from '../hooks/useGetCharacters';
 import SearchBar from '../components/SearchBar';
 
 export default function Characters() {
-    const {characters, changePage, pages} = useGetCharacters();
+    const {characters, changePage, isLoading, searchByName, currentPage} = useGetCharacters();
+    const {data, pages} = characters;
 
     return(
         <Section black>
             <Container>
                 <TitleContainer>
                     <Title>Characters</Title>
-                    <SearchBar/>
+                    <SearchBar searchByName={searchByName} />
                 </TitleContainer>
                 <CardsContainer>
-                    { characters.map((character) => {
+                    { isLoading && <h1>Cargando...</h1> }
+                    { !isLoading && data?.map((character) => {
                         return (
                             <Card row key={character.id}>
                                 <CardImageContainer>
@@ -51,6 +53,7 @@ export default function Characters() {
                 <Pagination 
                     changePage={changePage}
                     pages={pages}
+                    currentPage={currentPage}
                 />
             </Container>
         </Section>

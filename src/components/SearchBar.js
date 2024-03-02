@@ -1,22 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 //fontawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const SearchBar = () => {
+const SearchBar = ({searchByName}) => {
+    const [searchValue, setSearchValue] = useState("");
+
+    const onInputChange = ({ target }) => {
+        setSearchValue(target.value)
+    };
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        searchByName(searchValue)
+    }
+
     return (
-        <Search>
-            <Input type="text"/>
-            <Icon>
+        <Search onSubmit={onSubmit}>
+            <Input id="search" name="search" type="text" value={searchValue} onChange={onInputChange}/>
+            <Icon type="button" onClick={onSubmit}>
                 <FontAwesomeIcon icon={faSearch} />
             </Icon>
         </Search>
     );
 }
 
-const Search = styled.div`
+const Search = styled.form`
     width: 350px;
     height: 38px;
     display: flex;
