@@ -12,9 +12,9 @@ import useGetEpisodes from "../hooks/useGetEpisodes";
 import useGetLocations from "../hooks/useGetLocations";
 
 const Footer = () => {
-    const {totalCount:totalCountCharacters} = useGetCharacters();
-    const {totalCount:totalCountEpisodes} = useGetEpisodes();
-    const {totalCount:totalCountLocations} = useGetLocations();
+    const { characters: { totalCount:totalCountCharacters } } = useGetCharacters();
+    const { locations: { totalCount:totalCountLocations }} = useGetLocations();
+    const { episodes: { totalCount:totalCountEpisodes } } = useGetEpisodes();
 
     return (
         <ContainerFooter>
