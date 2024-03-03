@@ -5,7 +5,7 @@ import { URL_CHARACTERS, FILTERS_NAME, FILTERS_PAGE } from '../constants';
 
 const useGetCharacters = () => {
     const { currentPage, name, changePage, searchByName } = useFilters();
-    const { data, isLoading } = useFetch(`${URL_CHARACTERS}?${FILTERS_PAGE}=${currentPage}&${FILTERS_NAME}=${name}`);
+    const { data, isLoading, hasError } = useFetch(`${URL_CHARACTERS}?${FILTERS_PAGE}=${currentPage}&${FILTERS_NAME}=${name}`);
     const [characters, setCharacters] = useState({
         data: [],
         pages: 0,
@@ -24,7 +24,7 @@ const useGetCharacters = () => {
         updateData();
     }, [data])
 
-    return {characters, changePage, isLoading, searchByName, currentPage};
+    return {characters, changePage, isLoading, searchByName, currentPage, hasError};
 }
  
 export default useGetCharacters;

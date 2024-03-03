@@ -10,9 +10,10 @@ import Spinner from '../components/Spinner';
 // Hooks
 import useGetCharacters from '../hooks/useGetCharacters';
 import SearchBar from '../components/SearchBar';
+import NotFound from '../components/NotFound';
 
 export default function Characters() {
-    const {characters, changePage, isLoading, searchByName, currentPage} = useGetCharacters();
+    const {characters, changePage, isLoading, searchByName, currentPage, hasError} = useGetCharacters();
     const {data, pages} = characters;
 
     return(
@@ -23,6 +24,7 @@ export default function Characters() {
                     <SearchBar searchByName={searchByName} />
                 </TitleContainer>
                 <CardsContainer>
+                    { hasError && <NotFound /> }
                     { isLoading && <Spinner /> }
                     { !isLoading && data?.map((character) => {
                         return (
@@ -51,11 +53,11 @@ export default function Characters() {
                         );
                     })}
                 </CardsContainer>
-                <Pagination 
+                { !hasError && <Pagination 
                     changePage={changePage}
                     pages={pages}
                     currentPage={currentPage}
-                />
+                />}
             </Container>
         </Section>
     );

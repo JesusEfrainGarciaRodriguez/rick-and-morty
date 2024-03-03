@@ -5,7 +5,7 @@ import { URL_LOCATIONS, FILTERS_NAME, FILTERS_PAGE } from '../constants';
 
 const useGetLocations = () => {
     const { currentPage, name, changePage, searchByName } = useFilters();
-    const { data, isLoading } = useFetch(`${URL_LOCATIONS}?${FILTERS_PAGE}=${currentPage}&${FILTERS_NAME}=${name}`);
+    const { data, isLoading, hasError } = useFetch(`${URL_LOCATIONS}?${FILTERS_PAGE}=${currentPage}&${FILTERS_NAME}=${name}`);
     const [locations, setLocations] = useState({
         data: [],
         pages: 0,
@@ -24,7 +24,7 @@ const useGetLocations = () => {
         updateData();
     }, [data])
 
-    return {locations, changePage, isLoading, searchByName, currentPage};
+    return {locations, changePage, isLoading, searchByName, currentPage, hasError};
 }
  
 export default useGetLocations;

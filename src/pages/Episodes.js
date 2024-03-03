@@ -7,12 +7,13 @@ import Pagination from '../components/Pagination';
 import { Title, TitleContainer } from '../components/Title';
 import SearchBar from '../components/SearchBar';
 import Spinner from '../components/Spinner';
+import NotFound from '../components/NotFound';
 
 // Hooks
 import useGetEpisodes from '../hooks/useGetEpisodes';
 
 export default function Episodes() {
-    const {episodes, changePage, isLoading, searchByName, currentPage} = useGetEpisodes();
+    const {episodes, changePage, isLoading, searchByName, currentPage, hasError} = useGetEpisodes();
     const {data, pages} = episodes;
 
     return(
@@ -23,6 +24,7 @@ export default function Episodes() {
                     <SearchBar searchByName={searchByName} />
                 </TitleContainer>
                 <CardsContainer>
+                    { hasError && <NotFound /> }
                     { isLoading && <Spinner /> }
                     { !isLoading && data?.map((episode) => {
                         return(
@@ -42,11 +44,11 @@ export default function Episodes() {
                         );
                     })}
                 </CardsContainer>
-                <Pagination 
+                { !hasError && <Pagination 
                     changePage={changePage}
                     pages={pages}
                     currentPage={currentPage}
-                />
+                />}
             </Container>
         </Section>
     );

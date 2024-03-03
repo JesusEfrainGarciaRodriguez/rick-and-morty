@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'PT Sans', sans-serif;
         scroll-behavior: smooth;
     } 
+
+    body {
+        background: #202329;
+    }
 `;
 
 export const Container = styled.div`

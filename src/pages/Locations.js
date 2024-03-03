@@ -7,12 +7,13 @@ import Pagination from '../components/Pagination';
 import { Title, TitleContainer } from '../components/Title';
 import SearchBar from '../components/SearchBar';
 import Spinner from '../components/Spinner';
+import NotFound from '../components/NotFound';
 
 // Hooks
 import useGetLocation from '../hooks/useGetLocations';
 
 export default function Locations() {
-    const {locations, changePage, isLoading, searchByName, currentPage} = useGetLocation();
+    const {locations, changePage, isLoading, searchByName, currentPage, hasError} = useGetLocation();
     const {data, pages} = locations;
 
     return(
@@ -23,6 +24,7 @@ export default function Locations() {
                     <SearchBar searchByName={searchByName} />
                 </TitleContainer>
                 <CardsContainer>
+                    { hasError && <NotFound /> }
                     { isLoading && <Spinner /> }
                     { !isLoading && data?.map((location) => {
                         return (
@@ -43,11 +45,11 @@ export default function Locations() {
                         );
                     })}
                 </CardsContainer>
-                <Pagination 
+                { !hasError && <Pagination 
                     changePage={changePage}
                     pages={pages}
                     currentPage={currentPage}
-                />
+                />}
             </Container>
         </Section>
     );
