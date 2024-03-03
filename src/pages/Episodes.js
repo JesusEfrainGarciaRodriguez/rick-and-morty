@@ -6,6 +6,7 @@ import { CardsContainer, Card, CardSection, CardBody, CardTitle, CardText, CardT
 import Pagination from '../components/Pagination';
 import { Title, TitleContainer } from '../components/Title';
 import SearchBar from '../components/SearchBar';
+import Spinner from '../components/Spinner';
 
 // Hooks
 import useGetEpisodes from '../hooks/useGetEpisodes';
@@ -22,7 +23,7 @@ export default function Episodes() {
                     <SearchBar searchByName={searchByName} />
                 </TitleContainer>
                 <CardsContainer>
-                    { isLoading && <h1>Cargando...</h1> }
+                    { isLoading && <Spinner /> }
                     { !isLoading && data?.map((episode) => {
                         return(
                             <Card key={episode.id}>

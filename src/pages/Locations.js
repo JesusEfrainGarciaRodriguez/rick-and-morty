@@ -6,6 +6,7 @@ import { CardsContainer, Card, CardSection, CardBody, CardTitle, CardText, CardT
 import Pagination from '../components/Pagination';
 import { Title, TitleContainer } from '../components/Title';
 import SearchBar from '../components/SearchBar';
+import Spinner from '../components/Spinner';
 
 // Hooks
 import useGetLocation from '../hooks/useGetLocations';
@@ -22,7 +23,7 @@ export default function Locations() {
                     <SearchBar searchByName={searchByName} />
                 </TitleContainer>
                 <CardsContainer>
-                    { isLoading && <h1>Cargando...</h1> }
+                    { isLoading && <Spinner /> }
                     { !isLoading && data?.map((location) => {
                         return (
                             <Card key={location.id}>

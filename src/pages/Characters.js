@@ -5,6 +5,7 @@ import { Container, Section } from '../globalStyles';
 import { CardsContainer, Card, CardSection, CardImageContainer, CardBody, CardTitle, CardText, CardTextGray, CardStatusIcon } from '../components/Card'
 import Pagination from '../components/Pagination';
 import { Title, TitleContainer } from '../components/Title';
+import Spinner from '../components/Spinner';
 
 // Hooks
 import useGetCharacters from '../hooks/useGetCharacters';
@@ -22,7 +23,7 @@ export default function Characters() {
                     <SearchBar searchByName={searchByName} />
                 </TitleContainer>
                 <CardsContainer>
-                    { isLoading && <h1>Cargando...</h1> }
+                    { isLoading && <Spinner /> }
                     { !isLoading && data?.map((character) => {
                         return (
                             <Card row key={character.id}>

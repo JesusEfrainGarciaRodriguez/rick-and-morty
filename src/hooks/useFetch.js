@@ -59,7 +59,6 @@ const useFetch = (url) => {
 
         // Si no hay error extraer data
         const data = await response.json();
-        console.log("response", data)
         setState({
             data: data,
             isLoading: false,
